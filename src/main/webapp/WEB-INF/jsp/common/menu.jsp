@@ -19,6 +19,11 @@
 				<i class="fa fa-list-ul"></i> <span>字典管理</span>
 			</a>
 		</li>
+		<li id="partner">
+			<a href="${base}/admin/auth/partner/partnerList.htm"> 
+				<i class="fa fa-list-ul"></i> <span>伙伴管理</span>
+			</a>
+		</li>
     </ul>
   </section>
 </aside>

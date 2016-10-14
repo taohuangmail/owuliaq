@@ -21,4 +21,6 @@ public interface DictionaryService extends GenericService<Dictionary, Dictionary
     List<Dictionary> getDictionaryList(DictionaryQueryBean queryBean);
 	
 	Integer getDictionaryCount(DictionaryQueryBean queryBean);
+	
+	List<Dictionary> getDictionaryByGroupId(String groupId);
 }

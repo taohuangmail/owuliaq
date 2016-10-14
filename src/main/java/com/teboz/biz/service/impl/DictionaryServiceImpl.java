@@ -2,6 +2,7 @@ package com.teboz.biz.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,19 @@ public class DictionaryServiceImpl extends GenericServiceImpl<Dictionary, Dictio
 	@Override
 	public Integer getDictionaryCount(DictionaryQueryBean queryBean) {
 		return dictionaryMapper.getDictionaryCount(queryBean);
+	}
+
+	@Override
+	public List<Dictionary> getDictionaryByGroupId(String groupId) {
+		List<Dictionary> dictionaryList = null;
+		if(StringUtils.isNotBlank(groupId)){
+			DictionaryExample de = new DictionaryExample();
+			DictionaryExample.Criteria criteria = de.createCriteria();
+			criteria.andGroupIdEqualTo(groupId);
+			criteria.andDeleteFlagEqualTo(false);
+			dictionaryList = dictionaryMapper.selectByExample(de);
+		}
+		return dictionaryList;
 	}
 
 }
